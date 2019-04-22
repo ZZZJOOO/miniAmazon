@@ -3,14 +3,14 @@ import commu_pb2
 import psycopg2
 
 def get_name_from_DB(productid):
-    return "Apple"
+    # return "Apple"
     # connect to database
     try:
-       connection = psycopg2.connect(user="sysadmin",
-                                      password="pynative@#29",
-                                      host="127.0.0.1",
+       connection = psycopg2.connect(user="postgres",
+                                      password="passw0rd",
+                                      host="67.159.88.129",
                                       port="5432",
-                                      database="postgres_db")
+                                      database="postgres")
        cursor = connection.cursor()
        postgreSQL_select_Query = "select productName from wareHouse where productId = " + productid
        cursor.execute(postgreSQL_select_Query)
@@ -23,6 +23,7 @@ def get_name_from_DB(productid):
            name = row[0]
     except (Exception, psycopg2.Error) as error :
         print ("Error while fetching data from PostgreSQL", error)
+    """
     finally:
         #closing database connection.
         if(connection):
@@ -30,7 +31,7 @@ def get_name_from_DB(productid):
             connection.close()
             print("PostgreSQL connection is closed")
             return name
-
+    """
 
 class WebRequestParser:
     def __init__(self, request):

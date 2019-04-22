@@ -55,7 +55,7 @@ class ClientThread(Thread):
 
 # Multithreaded Python server : TCP Server Socket Program Stub
 TCP_IP = '10.0.0.243' 
-TCP_PORT = 56789 
+TCP_PORT = 5678
 BUFFER_SIZE = 20  # Usually 1024, but we need quick response 
 
 tcpServer = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
